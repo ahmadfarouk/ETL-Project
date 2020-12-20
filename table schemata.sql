@@ -32,7 +32,7 @@ CREATE TABLE "title_country" (
 CREATE TABLE "country" (
     "country_id" int   NOT NULL,
     "country_name" varchar(500)   NOT NULL,
-    "country_shortname" varchar(3)   NOT NULL,
+    "country_shortname" varchar(4)   NOT NULL,
     "longitude" varchar(15)   NOT NULL,
     "latitude" varchar(15)   NOT NULL,
     CONSTRAINT "pk_country" PRIMARY KEY (
@@ -41,10 +41,10 @@ CREATE TABLE "country" (
 );
 
 CREATE TABLE "Listed_in" (
-    "listen_in_id" int   NOT NULL,
+    "listed_in_id" int   NOT NULL,
     "listed_in_name" varchar(500)   NOT NULL,
     CONSTRAINT "pk_Listed_in" PRIMARY KEY (
-        "listen_in_id"
+        "listed_in_id"
      )
 );
 
@@ -106,7 +106,7 @@ ALTER TABLE "title_country" ADD CONSTRAINT "fk_title_country_country_id" FOREIGN
 REFERENCES "country" ("country_id");
 
 ALTER TABLE "listed_in_title" ADD CONSTRAINT "fk_listed_in_title_listed_in_id" FOREIGN KEY("listed_in_id")
-REFERENCES "Listed_in" ("listen_in_id");
+REFERENCES "Listed_in" ("listed_in_id");
 
 ALTER TABLE "listed_in_title" ADD CONSTRAINT "fk_listed_in_title_show_id" FOREIGN KEY("show_id")
 REFERENCES "title" ("show_id");
